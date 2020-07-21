@@ -1,2 +1,7 @@
-### Software Developer💻
-![](https://badgen.net/badge/人生/success/green)
+# Software Developer💻
+
+## OSS contribution
+kaminari
+https://github.com/kaminari/kaminari
+
+![](https://badgen.net/badge/Ruby/merged/green)
