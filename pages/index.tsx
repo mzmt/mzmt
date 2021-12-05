@@ -1,69 +1,49 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { motion } from "framer-motion"
 
 const Home: NextPage = () => {
   return (
-    <div className='bg-blue-100'>
+    <div>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="mzmt web page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=''>
-        <h1 className=''>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <motion.div
+        className="circle"
+        animate={{
+          // ciecle size: 0    400   400   400    0    0  2500
+          borderWidth: [1250, 1100, 1100, 1100, 1250, 1250, 0]
+        }}
+        transition={{
+          duration: 4,
+          ease: "easeInOut",
+          times: [0, 0.2, 0.5, 0.55, 0.7, 0.8, 1],
+        }}
+      >
+      </motion.div>
 
-        <p className=''>
-          Get started by editing{' '}
-          <code className=''>pages/index.tsx</code>
-        </p>
+      <motion.div
+        className="avatar"
+        initial={{ y: 280 }}
+        animate={{
+          y: [280, 280, 0, 0, 0, 0, 0],
+          opacity: [1, 1, 1, 1, 1, 0, 0],
+        }}
+        transition={{
+          duration: 4,
+          times: [0, 0.2, 0.33, 0.55, 0.7, 0.8, 1],
+        }}
+      >
+        <Image className="" src="/test.png" alt="Vercel Logo" width={274} height={252} />
+      </motion.div>
 
-        <div className=''>
-          <a href="https://nextjs.org/docs" className=''>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className=''>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className=''
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className=''
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <main>
+        {/* content */}
       </main>
-
-      <footer className=''>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className=''>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
