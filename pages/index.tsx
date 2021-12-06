@@ -17,7 +17,8 @@ const Home: NextPage = () => {
         className="circle"
         animate={{
           // ciecle size: 0    400   400   400    0    0  2500
-          borderWidth: [1250, 1100, 1100, 1100, 1250, 1250, 0]
+          borderWidth: [1250, 1100, 1100, 1100, 1250, 1250, 0],
+          opacity: [1, 1, 1, 1, 1, 1, 0],
         }}
         transition={{
           duration: 4,
