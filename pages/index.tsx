@@ -1,9 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react";
+import { tabs } from "./tabs";
 
 const Home: NextPage = () => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
   return (
     <div>
       <Head>
@@ -23,10 +27,73 @@ const Home: NextPage = () => {
         transition={{
           duration: 4,
           ease: "easeInOut",
-          times: [0, 0.2, 0.5, 0.55, 0.7, 0.8, 1],
+          times: [0, 0.15, 0.3, 0.55, 0.7, 0.8, 1],
         }}
       >
       </motion.div>
+
+      <motion.div
+        className="content"
+        initial={{ y: 80 }}
+        animate={{
+          y: [10, 10, 10, 10, 10, 10, 0],
+          opacity: [0, 0, 0, 0, 0, 0, 1],
+        }}
+        transition={{
+          duration: 5,
+          ease: "easeInOut",
+          times: [0, 0.2, 0.5, 0.55, 0.7, 0.8, 1],
+        }}
+      >
+
+        <div className="window bg-white overflow-hidden flex flex-col">
+          <nav>
+            <ul>
+              {tabs.map((item) => (
+                <li
+                  key={item.label}
+                  className={item === selectedTab ? "selected" : ""}
+                  onClick={() => setSelectedTab(item)}
+                >
+                  {`${item.icon}　${item.label}`}
+                  {item === selectedTab ? (
+                    <motion.div className="underline" layoutId="underline" />
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <main>
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                key={selectedTab.label}
+                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.15 }}
+              >
+                {selectedTab.content}
+              </motion.div>
+            </AnimatePresence>
+          </main>
+      </div>
+      </motion.div>
+
+      <motion.footer
+        className="absolute -ml-40 text-gray-600 footer-index"
+        initial={{ y: 80 }}
+        animate={{
+          y: [10, 10, 10, 10, 10, 10, 0],
+          opacity: [0, 0, 0, 0, 0, 0, 1],
+        }}
+        transition={{
+          duration: 5,
+          ease: "easeInOut",
+          times: [0, 0.2, 0.5, 0.55, 0.7, 0.8, 1],
+        }}
+      >
+        <span>© 2021 Ryohei Mizumoto. All Rights Reserved.</span>
+      </motion.footer>
 
       <motion.div
         className="avatar"
@@ -42,10 +109,6 @@ const Home: NextPage = () => {
       >
         <Image className="" src="/test.png" alt="Vercel Logo" width={274} height={252} />
       </motion.div>
-
-      <main>
-        {/* content */}
-      </main>
     </div>
   )
 }
