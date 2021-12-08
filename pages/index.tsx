@@ -38,7 +38,7 @@ const Home: NextPage = () => {
 
       <motion.div
         className="content"
-        initial={{ y: 80 }}
+        initial={{ y: 10, opacity: 0 }}
         animate={{
           y: [10, 10, 10, 10, 10, 10, 0],
           opacity: [0, 0, 0, 0, 0, 0, 1],
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
 
       <motion.footer
         className="absolute -ml-40 text-gray-600 footer-index"
-        initial={{ y: 80 }}
+        initial={{ y: 10, opacity: 0 }}
         animate={{
           y: [10, 10, 10, 10, 10, 10, 0],
           opacity: [0, 0, 0, 0, 0, 0, 1],
@@ -101,7 +101,7 @@ const Home: NextPage = () => {
 
       <motion.div
         className="avatar"
-        initial={{ y: 280 }}
+        initial={{ y: 280, opacity: 0 }}
         animate={{
           y: [280, 280, 0, 0, 0, 0, 0],
           opacity: [1, 1, 1, 1, 1, 0, 0],
