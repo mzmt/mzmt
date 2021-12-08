@@ -3,9 +3,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react";
-import { tabs } from "./tabs";
 
 const Home: NextPage = () => {
+  const tabs = [
+    { icon: "📝", label: "Profile", content: "Ryohei Mizumoto" },
+    { icon: "🛠", label: "Work", content: "service -> https://www.gemify.me/" },
+    { icon: "📗", label: "Tech Blog", content: "zenn -> https://zenn.dev/mz" },
+  ];
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
