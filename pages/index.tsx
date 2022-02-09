@@ -72,7 +72,7 @@ const Home: NextPage = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.15 }}
               >
-                {selectedTab.content}
+                {<Content/>}
               </motion.div>
             </AnimatePresence>
           </main>
@@ -111,6 +111,72 @@ const Home: NextPage = () => {
       </motion.div>
     </div>
   )
+
+  function Content() {
+    if (selectedTab.label == "Profile") {
+      return (
+        <div>
+          <h1 className="text-4xl">
+            Ryohei Mizumoto
+          </h1>
+          <p className="text-base mb-8">
+            Developer
+          </p>
+
+          <p>
+            <span className="text-lg mr-4">1996</span>Born in Nagasaki, Japan.
+          </p>
+          <p>
+            <span className="text-lg mr-4">2019</span>Graduated from Nagasaki University(長崎大学)
+          </p>
+          <p>
+            <span className="text-lg mr-4">2019</span>Worked at FOWD, inc.
+          </p>
+          <p>
+            <span className="text-lg mr-4">2019</span>Worked at WED, inc.
+          </p>
+          <p>
+            <span className="text-lg mr-4">2020</span>Worked at StartupTechnology, inc.(now)
+          </p>
+          <p className="mt-8">
+            <a href="https://github.com/mzmt" target="_blank" rel="noopener noreferrer" className="mr-4">GitHub</a>
+            <a href="https://zenn.dev/mz" target="_blank" rel="noopener noreferrer">Zenn</a>
+          </p>
+        </div>
+      )
+    } else if (selectedTab.label == "Works") {
+      return (
+        <div>
+          {/* <h1>
+            Works
+          </h1> */}
+          <p>
+            WIP
+          </p>
+        </div>
+      )
+    } else if (selectedTab.label == "Activities") {
+      return (
+        <div>
+          <h1 className="text-4xl mb-4">2021</h1>
+          <h2 className="mb-1">
+            <a href="https://jawspankration2021.jaws-ug.jp/" target="_blank" rel="noopener noreferrer">
+            JAWS PANKRATION 2021
+            </a>
+            実行委員
+          </h2>
+          <div className="text-xl">
+            <p>- Next.js / AWS Amplifyなどを利用した配信サイトの構築</p>
+            <p>- 24時間連続で行われる配信イベントの当日のオペレーションなど</p>
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div>nothing</div>
+      )
+    }
+  }
 }
 
 export default Home
