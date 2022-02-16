@@ -138,9 +138,9 @@ const Home: NextPage = () => {
           <p>
             <span className="text-lg mr-4">2020</span>Worked at StartupTechnology, inc.(now)
           </p>
-          <p className="mt-8">
-            <a href="https://github.com/mzmt" target="_blank" rel="noopener noreferrer" className="mr-4">GitHub</a>
-            <a href="https://zenn.dev/mz" target="_blank" rel="noopener noreferrer">Zenn</a>
+          <p className="mt-8 text-indigo-600">
+            <a href="https://github.com/mzmt" target="_blank" rel="noopener noreferrer" className="mr-4 hover:text-indigo-400 hover:underline">GitHub</a>
+            <a href="https://zenn.dev/mz" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 hover:underline">Zenn</a>
           </p>
         </div>
       )
@@ -159,11 +159,10 @@ const Home: NextPage = () => {
       return (
         <div>
           <h1 className="text-4xl mb-4">2021</h1>
-          <h2 className="mb-1">
+          <h2 className="mb-1 hover:text-indigo-400 hover:underline text-indigo-600">
             <a href="https://jawspankration2021.jaws-ug.jp/" target="_blank" rel="noopener noreferrer">
-            JAWS PANKRATION 2021
+            JAWS PANKRATION 2021実行委員
             </a>
-            実行委員
           </h2>
           <div className="text-xl">
             <p>- Next.js / AWS Amplifyなどを利用した配信サイトの構築</p>
